@@ -1,5 +1,7 @@
 package com.example.googlemeet
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,38 +11,56 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
+import com.example.googlemeet.databinding.ActivityMainBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.bottom_sheet_activity.*
 import kotlinx.android.synthetic.main.bottom_sheet_activity.view.*
+import kotlinx.android.synthetic.main.new_meeting_dialog.view.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
+    lateinit var binding: ActivityMainBinding // binding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater) // binding
 
+        setContentView(binding.root) // binding
+
+        // Nav Bar Code
         toggle = ActionBarDrawerToggle(this, drawerlayout, R.string.open, R.string.close)
-        drawerlayout.addDrawerListener(toggle)
+        binding.drawerlayout.addDrawerListener(toggle)
         toggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
-        navview1.setNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.Setting -> Toast.makeText(applicationContext,
-                    "settingclcked",
-                    Toast.LENGTH_SHORT).show()
+        // Nav Bar code
+        binding.navview1.setNavigationItemSelectedListener {
+                if(it.itemId ==R.id.Setting) run { ->
+                    Toast.makeText(applicationContext,
+                        "SettingClicked",
+                        Toast.LENGTH_SHORT).show()
+                } else if (it.itemId== R.id.Feedback) run { ->
+                    intent = Intent(this, FeedBackActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    if (it.itemId == R.id.Help) run { ->
+                        Toast.makeText(applicationContext,
+                            "HelpClicked",
+                            Toast.LENGTH_SHORT).show()
+                    }
             }
             true
         }
 
-        NewMeetingButton.setOnClickListener {
-            val bottomDialog =BottomSheetDialog(
+        // bottom sheet code
+        binding.NewMeetingButton.setOnClickListener {
+            val bottomDialog = BottomSheetDialog(
                 this@MainActivity, R.style.BottomSheetDialogTheme
             )
 
@@ -53,27 +73,40 @@ class MainActivity : AppCompatActivity() {
                 bottomDialog.dismiss()
             }
 
+            bottomSheetView.getmettinglink.setOnClickListener {
+                val mDialogview = LayoutInflater.from(this).inflate(R.layout.new_meeting_dialog, null)
+                val mBuilder = AlertDialog.Builder(this)
+                    .setView(mDialogview)
+                val mAlertDialog = mBuilder.show()
+                mDialogview.closeBtn.setOnClickListener {
+                    mAlertDialog.dismiss()
+                }
+                bottomDialog.dismiss()
+            }
             bottomDialog.setContentView(bottomSheetView)
             bottomDialog.show()
         }
 
-        val fragments : ArrayList<Fragment> = arrayListOf(
+        // Get Meeting Link Code
+
+        // fragments
+        val fragments: ArrayList<Fragment> = arrayListOf(
             ViewPagerFragment1(),
             ViewPagerFragment2()
         )
+        val adapter = PagerAdaptor(fragments, this)
+        binding.viewPager2.adapter = adapter
 
-        val adapter = PagerAdaptor(fragments,this)
-        viewPager2.adapter = adapter
+        binding.indicator.setViewPager(viewPager2)
 
-        indicator.setViewPager(viewPager2)
-
-        joinButton.setOnClickListener {
-            val intent = Intent(this,joinActivity::class.java)
+        binding.joinButton.setOnClickListener {
+            val intent = Intent(this, joinActivity::class.java)
             startActivity(intent)
         }
     }
 
 
+    // Nav Bar Code
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {
             return true

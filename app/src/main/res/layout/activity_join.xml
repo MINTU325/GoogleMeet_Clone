@@ -43,13 +43,16 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:layout_width="match_parent"
         android:id="@+id/etMeetingCode"
-        android:background="@drawable/rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:layout_below="@id/tvName"
-        android:layout_margin="20dp"
-        android:paddingLeft="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rectangle"
         android:hint="Example abc-mnop-xyz"
-        android:layout_height="60dp" />
+        android:paddingLeft="10dp" />
 
 </RelativeLayout>

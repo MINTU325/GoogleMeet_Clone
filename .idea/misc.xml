@@ -11,13 +11,15 @@
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.20555555555555555" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/drawable/ic_baseline_insert_link_24.xml" value="0.20555555555555555" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.20555555555555555" />
+        <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.26205128205128203" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/drawable/ic_baseline_video_call_24.xml" value="0.20555555555555555" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/drawable/rectangle.xml" value="0.26205128205128203" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/drawable/selected_pager_dot.xml" value="0.20555555555555555" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/drawable/tab_pager_selector.xml" value="0.20555555555555555" />
+        <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/activity_feed_back.xml" value="0.264" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/activity_join.xml" value="0.264" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/activity_join2.xml" value="0.23097826086956522" />
-        <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/activity_main.xml" value="0.136" />
+        <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/activity_main2.xml" value="0.12158054711246201" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/activity_splashscreen.xml" value="0.1793478260869565" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/app_bar.xml" value="0.176" />
@@ -27,6 +29,7 @@
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/fragment_viewpager.xml" value="0.25" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/header_layout.xml" value="0.23097826086956522" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/nav_header.xml" value="0.1" />
+        <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/new_meeting_dialog.xml" value="0.2259963768115942" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/layout/switch_item.xml" value="0.12158054711246201" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/menu/menu.xml" value="0.25" />
       </map>

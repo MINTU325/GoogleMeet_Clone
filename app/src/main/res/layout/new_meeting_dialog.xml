@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="280dp" >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_margin="20dp"
+        android:textColor="@color/black"
+        android:id="@+id/tvText"
+        android:textSize="18dp"
+        android:text="Here`s the link to your meeting "
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="25dp"
+        android:id="@+id/closeBtn"
+        android:drawableStart="@drawable/ic_baseline_close_24"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tvText1"
+        android:layout_below="@id/tvText"
+        android:layout_marginLeft="20dp"
+        android:text="Copy this link and send to people that you want to  \n meet with. Make sure that you save it so that you can \n use it later, too"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/etmeetingid"
+        android:background="@drawable/rectangle"
+        android:layout_below="@id/tvText1"
+        android:layout_margin="20dp"
+        android:drawableEnd="@drawable/ic_baseline_content_copy_24"
+        android:paddingRight="20dp"
+        android:hint="    meet.google.com/qjo-ssyj-omi"
+        android:layout_height="45dp" />
+
+        <Button
+            android:id="@+id/btnlinkshare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etmeetingid"
+            android:layout_centerHorizontal="true"
+            android:background="#4169E1"
+            android:drawableStart="@drawable/ic_baseline_share_24"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="    share invitation "
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
