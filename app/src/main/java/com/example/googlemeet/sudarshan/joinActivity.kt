@@ -1,8 +1,9 @@
-package com.example.googlemeet
+package com.example.googlemeet.sudarshan
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.googlemeet.R
 import kotlinx.android.synthetic.main.activity_join.*
 
 class joinActivity : AppCompatActivity() {
@@ -10,7 +11,7 @@ class joinActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join)
         backbtnMain.setOnClickListener {
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

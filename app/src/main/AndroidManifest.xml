@@ -10,14 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoogleMeet">
         <activity
-            android:name=".joinActivity"
+            android:name=".sudarshan.joinActivity"
             android:exported="true"
             android:label="@string/title_activity_join"
             android:theme="@style/Theme.GoogleMeet.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".sudarshan.MainActivity"
             android:exported="true" />
-        <activity android:name=".splashscreen">
+        <activity android:name=".sudarshan.splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

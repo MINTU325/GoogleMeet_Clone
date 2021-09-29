@@ -1,4 +1,4 @@
-package com.example.googlemeet
+package com.example.googlemeet.sudarshan
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,19 +9,21 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
+import com.example.googlemeet.R
+import com.example.googlemeet.databinding.ActivityMainBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.bottom_sheet_activity.*
 import kotlinx.android.synthetic.main.bottom_sheet_activity.view.*
 
 class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainBinding
 
     lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         toggle = ActionBarDrawerToggle(this, drawerlayout, R.string.open, R.string.close)
         drawerlayout.addDrawerListener(toggle)
@@ -45,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             )
 
             val bottomSheetView = LayoutInflater.from(applicationContext).inflate(
-                R.layout.bottom_sheet_activity,
+                    R.layout.bottom_sheet_activity,
                 findViewById(R.id.bottomsheet) as LinearLayout?
             )
 
@@ -64,11 +66,10 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = PagerAdaptor(fragments,this)
         viewPager2.adapter = adapter
-
         indicator.setViewPager(viewPager2)
 
         joinButton.setOnClickListener {
-            val intent = Intent(this,joinActivity::class.java)
+            val intent = Intent(this, joinActivity::class.java)
             startActivity(intent)
         }
     }

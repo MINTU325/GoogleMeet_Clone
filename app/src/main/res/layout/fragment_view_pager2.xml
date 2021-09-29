@@ -6,7 +6,7 @@
     android:id="@+id/fragmenta"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ViewPagerFragment2">
+    tools:context=".sudarshan.ViewPagerFragment2">
 
     <ImageView
         android:id="@+id/imageView"
