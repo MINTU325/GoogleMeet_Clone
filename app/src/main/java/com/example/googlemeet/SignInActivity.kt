@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.googlemeet.databinding.ActivityDashboardBinding
 import com.example.googlemeet.databinding.ActivitySignInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -42,7 +41,7 @@ class SignInActivity : AppCompatActivity() {
         //Firebase Auth instance
         mAuth = FirebaseAuth.getInstance()
 
-        binding.signInBtn.setOnClickListener {
+        binding.button.setOnClickListener {
             signIn()
         }
     }
