@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.googlemeet"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -30,9 +30,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures{
+        viewBinding true
+    }
+
+
 }
 
 dependencies {
+// Jitsi Meet
+    implementation ('org.jitsi.react:jitsi-meet-sdk:3.0.0') { transitive = true }
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
