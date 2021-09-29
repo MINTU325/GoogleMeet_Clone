@@ -10,19 +10,19 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
 import com.example.googlemeet.R
-import com.example.googlemeet.databinding.ActivityMainBinding
+import com.example.googlemeet.databinding.ActivityMainscreenBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_mainscreen.*
 import kotlinx.android.synthetic.main.bottom_sheet_activity.view.*
 
-class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+class MainScreenActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainscreenBinding
 
     lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainscreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         toggle = ActionBarDrawerToggle(this, drawerlayout, R.string.open, R.string.close)
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         NewMeetingButton.setOnClickListener {
             val bottomDialog =BottomSheetDialog(
-                this@MainActivity, R.style.BottomSheetDialogTheme
+                this@MainScreenActivity, R.style.BottomSheetDialogTheme
             )
 
             val bottomSheetView = LayoutInflater.from(applicationContext).inflate(

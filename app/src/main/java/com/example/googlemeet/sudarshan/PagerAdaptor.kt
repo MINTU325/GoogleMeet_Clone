@@ -5,7 +5,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class PagerAdaptor(
     val items: ArrayList<Fragment>,
-    activity: MainActivity,
+    activity: MainScreenActivity,
 ) : FragmentStateAdapter(activity) {
     override fun getItemCount(): Int {
         return items.size

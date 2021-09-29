@@ -11,7 +11,7 @@ class joinActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join)
         backbtnMain.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainScreenActivity::class.java)
             startActivity(intent)
         }
     }
