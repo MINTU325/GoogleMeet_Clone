@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "638672408877",
+    "project_id": "meet-5f3ed",
+    "storage_bucket": "meet-5f3ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638672408877:android:6f947e52b8e7986ac003a4",
+        "android_client_info": {
+          "package_name": "com.example.googlemeet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638672408877-cfpnbm49998tjvjo9dn05pkn9olqs0u9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr6REUjg2_cdKQVN6kLGa7ruT8dV-XNFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638672408877-cfpnbm49998tjvjo9dn05pkn9olqs0u9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
