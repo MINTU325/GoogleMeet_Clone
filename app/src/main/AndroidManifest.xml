@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GoogleMeet">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".joinActivity"
+            android:exported="true"
+            android:label="@string/title_activity_join"
+            android:theme="@style/Theme.GoogleMeet.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity android:name=".splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
