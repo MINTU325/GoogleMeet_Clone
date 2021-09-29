@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GoogleMeet">
+
+
+
         <activity
             android:name=".sudarshan.joinActivity"
             android:exported="true"
