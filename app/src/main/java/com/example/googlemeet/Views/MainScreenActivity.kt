@@ -1,6 +1,5 @@
 package com.example.googlemeet
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,28 +10,39 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.example.googlemeet.Views.FeedBackActivity
+import com.example.googlemeet.Views.JoinGoogleMeetActivity
 import com.example.googlemeet.databinding.ActivityMainscreenBinding
-import com.example.googlemeet.sudarshan.PagerAdaptor
-import com.example.googlemeet.sudarshan.ViewPagerFragment1
-import com.example.googlemeet.sudarshan.ViewPagerFragment2
+import com.example.googlemeet.Adapters.PagerAdaptor
+import com.example.googlemeet.Views.ViewPagerFragment1
+import com.example.googlemeet.Views.ViewPagerFragment2
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_mainscreen.*
 import kotlinx.android.synthetic.main.bottom_sheet_activity.*
 import kotlinx.android.synthetic.main.bottom_sheet_activity.view.*
 import kotlinx.android.synthetic.main.new_meeting_dialog.view.*
 
-class MainActivity : AppCompatActivity() {
+class MainScreenActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var binding: ActivityMainscreenBinding // binding
+    private lateinit var mAuth: FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainscreenBinding.inflate(layoutInflater) // binding
 
-        setContentView(binding.root) // binding
+        setContentView(binding.root)
+        // binding
+
+
+        //firebase Auth
+        mAuth = FirebaseAuth.getInstance()
+        val currentUser = mAuth.currentUser
+        Glide.with(this).load(currentUser?.photoUrl).into(binding.profileimage)
 
         // Nav Bar Code
         toggle = ActionBarDrawerToggle(this, drawerlayout, R.string.open, R.string.close)
@@ -68,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         // bottom sheet code
         binding.NewMeetingButton.setOnClickListener {
             val bottomDialog = BottomSheetDialog(
-                this@MainActivity, R.style.BottomSheetDialogTheme
+                this@MainScreenActivity, R.style.BottomSheetDialogTheme
             )
 
             val bottomSheetView = LayoutInflater.from(applicationContext).inflate(

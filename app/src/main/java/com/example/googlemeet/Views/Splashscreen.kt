@@ -1,12 +1,10 @@
-package com.example.googlemeet.sudarshan
+package com.example.googlemeet.Views
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.example.googlemeet.MainActivity
 import com.example.googlemeet.R
-import com.example.googlemeet.SignInActivity
 import kotlinx.android.synthetic.main.activity_splashscreen.*
 
 class splashscreen : AppCompatActivity() {

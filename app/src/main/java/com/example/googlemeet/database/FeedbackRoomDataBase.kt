@@ -1,9 +1,11 @@
-package com.example.googlemeet.feedbackviewmodel
+package com.example.googlemeet.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.googlemeet.model.FeedBack
+import com.example.googlemeet.model.FeedbackDao
 
 @Database(entities = [FeedBack::class], version = 1)
 abstract class FeedbackRoomDataBase : RoomDatabase() {

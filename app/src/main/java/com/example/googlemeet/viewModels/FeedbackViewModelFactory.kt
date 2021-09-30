@@ -1,7 +1,8 @@
-package com.example.googlemeet.feedbackviewmodel
+package com.example.googlemeet.viewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.googlemeet.repository.FeedbackRepo
 
 
 class FeedbackViewModelFactory(val repo: FeedbackRepo) : ViewModelProvider.Factory {

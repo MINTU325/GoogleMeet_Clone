@@ -11,26 +11,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoogleMeet">
         <activity
-            android:name=".FeedBackActivity"
+            android:name=".Views.FeedBackActivity"
             android:exported="true" />
 
-        <activity android:name=".DashboardActivity"
+        <activity android:name=".Views.DashboardActivity"
             android:exported="true" />
-        <activity android:name=".SignInActivity"
+        <activity android:name=".Views.SignInActivity"
             android:exported="true" />
 
-        <activity android:name=".sudarshan.NewMeetActivity"
+        <activity android:name=".Views.NewMeetActivity"
             android:exported="true"/>
 
         <activity
-            android:name=".JoinGoogleMeetActivity"
+            android:name=".Views.JoinGoogleMeetActivity"
             android:exported="true"
             android:label="@string/title_activity_join"
             android:theme="@style/Theme.GoogleMeet.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name="Views.MainScreen"
             android:exported="true" />
-        <activity android:name=".sudarshan.splashscreen">
+        <activity android:name=".Views.splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

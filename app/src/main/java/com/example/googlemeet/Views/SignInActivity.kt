@@ -1,9 +1,10 @@
-package  com.example.googlemeet
+package  com.example.googlemeet.Views
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.googlemeet.MainScreenActivity
 import com.example.googlemeet.databinding.ActivitySignInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -12,11 +13,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.R
 
 class SignInActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivitySign
+    lateinit var binding: ActivitySignInBinding
 
 
     companion object {
@@ -28,7 +28,7 @@ class SignInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySi.inflate(layoutInflater)
+        binding = ActivitySignInBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
         FirebaseApp.initializeApp(applicationContext)
@@ -36,11 +36,12 @@ class SignInActivity : AppCompatActivity() {
 
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
+            //.requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
-
         googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+
 
         //Firebase Auth instance
         mAuth = FirebaseAuth.getInstance()
@@ -85,7 +86,7 @@ class SignInActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("SignInActivity", "signInWithCredential:success")
-                    val intent = Intent(this, DashboardActivity::class.java)
+                    val intent = Intent(this, MainScreenActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
