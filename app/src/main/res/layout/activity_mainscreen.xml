@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".sudarshan.MainScreenActivity">
+    tools:context=".GoogleMeetActivity.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -57,10 +57,10 @@
 
         <Button
             android:id="@+id/NewMeetingButton"
-            android:layout_width="180dp"
+            android:layout_width="175dp"
             android:layout_height="35dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:background="#1E90FF "
             android:text="New Meeting"
             app:layout_constraintRight_toLeftOf="@id/joinButton"
@@ -71,9 +71,9 @@
 
         <Button
             android:id="@+id/joinButton"
-            android:layout_width="185dp"
+            android:layout_width="180dp"
             android:layout_height="35dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:background="@color/white"
             android:text="Join with code"
             android:textAllCaps="false"

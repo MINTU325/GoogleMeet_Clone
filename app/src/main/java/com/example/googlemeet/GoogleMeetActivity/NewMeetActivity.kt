@@ -7,9 +7,7 @@ import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.example.googlemeet.R
 import com.example.googlemeet.databinding.ActivityJoinGoogleMeetBinding
-import kotlinx.android.synthetic.main.activity_join.*
 import org.jitsi.meet.sdk.BroadcastEvent
 import org.jitsi.meet.sdk.JitsiMeet
 import org.jitsi.meet.sdk.JitsiMeetActivity
@@ -20,6 +18,7 @@ import java.net.URL
 
 class NewMeetActivity : AppCompatActivity() {
     lateinit var binding: ActivityJoinGoogleMeetBinding
+    lateinit var inviteCode: String
 
 
     private val broadcastReceiver = object : BroadcastReceiver() {
@@ -27,8 +26,6 @@ class NewMeetActivity : AppCompatActivity() {
             onBroadcastReceived(intent)
         }
     }
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +62,7 @@ class NewMeetActivity : AppCompatActivity() {
         LocalBroadcastManager.getInstance(this)
             .registerReceiver(broadcastReceiver, intentFilter)
     }
+
     private fun onBroadcastReceived(intent: Intent?) {
         if (intent != null) {
             val event = BroadcastEvent(intent)
@@ -85,19 +83,33 @@ class NewMeetActivity : AppCompatActivity() {
 
 
     fun onButtonClickNewMeeting() {
-        val code = "code123"
-        if (code.length > 0) {
+        var passsGen= passsGen()
+        var inviteLink = passsGen.generatedL(12)
+//        val code = "code123"
+        if (inviteLink.length > 0) {
             val options = JitsiMeetConferenceOptions.Builder()
-                .setRoom(code)
+                .setRoom(inviteLink)
                 // Settings for audio and video
                 //.setAudioMuted(true)
                 //.setVideoMuted(true)
                 .build()
-            // Launch the new activity with the given options. The launch() method takes care
-            // of creating the required Intent and passing the options.
             JitsiMeetActivity.launch(this, options)
         }
     }
 
+}
+    class passsGen {
 
+        private val characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+
+        fun generatedL(length :Int) : String{
+            val builder = StringBuilder(length)
+            for( x in 0 until length){
+                val random = (characters.indices).random()
+                builder.append(characters[random])
+            }
+
+            builder.insert((0 until length).random(),"/")
+            return builder.toString()
+        }
 }

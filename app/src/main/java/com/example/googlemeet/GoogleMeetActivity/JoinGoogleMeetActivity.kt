@@ -37,6 +37,8 @@ class JoinGoogleMeetActivity : AppCompatActivity() {
             throw RuntimeException("Invalid server URL!")
         }
 
+
+
         val defaultOptions = JitsiMeetConferenceOptions.Builder()
             .setServerURL(serverURL)
             .setWelcomePageEnabled(false)
@@ -74,13 +76,7 @@ class JoinGoogleMeetActivity : AppCompatActivity() {
     private fun registerForBroadcastMessages() {
         val intentFilter = IntentFilter()
 
-        /* This registers for every possible event sent from JitsiMeetSDK
-           If only some of the events are needed, the for loop can be replaced
-           with individual statements:
-           ex:  intentFilter.addAction(BroadcastEvent.Type.AUDIO_MUTED_CHANGED.action);
-                intentFilter.addAction(BroadcastEvent.Type.CONFERENCE_TERMINATED.action);
-                ... other events
-         */
+
         for (type in BroadcastEvent.Type.values()) {
             intentFilter.addAction(type.action)
         }
