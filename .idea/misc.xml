@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Sai Nath Reddy/OneDrive/Desktop/meet/GoogleMeet_Clone/app/src/main/res/drawable/ic_google.xml" value="0.10925925925925926" />
+        <entry key="..\:/Users/Sai Nath Reddy/OneDrive/Desktop/meet/GoogleMeet_Clone/app/src/main/res/layout/activity_dashboard.xml" value="0.1" />
+        <entry key="..\:/Users/Sai Nath Reddy/OneDrive/Desktop/meet/GoogleMeet_Clone/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Sai Nath Reddy/OneDrive/Desktop/meet/GoogleMeet_Clone/app/src/main/res/layout/activity_sign_in.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/Sai Nath Reddy/OneDrive/Desktop/meet/GoogleMeet_Clone/app/src/main/res/layout/activity_welcome.xml" value="0.23229166666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/drawable/default_pager_dot.xml" value="0.20555555555555555" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.26205128205128203" />
         <entry key="..\:/unit-3-Projects/GoogleMeet_Clone/app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.20555555555555555" />

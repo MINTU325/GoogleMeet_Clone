@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">GoogleMeet</string>
+    <string name="sign_in_with_google">Sign in With Google</string>
+    <string name="example">Example</string>
+    <string name="id">ID</string>
+    <string name="name">Name</string>
+    <string name="email_address">Email address</string>
+    <string name="sign_out">Sign out</string>
+    <string name="to_make_vedio_calls_on_meet_allow_n_access_to_your_devices_s_video_camera_and_n_microphone">To make vedio calls on Meet, allow \n access to your devices\'s video camera and \n microphone</string>
     <string name="open">open</string>
     <string name="close">close</string>
     <!-- TODO: Remove or change this placeholder text -->
