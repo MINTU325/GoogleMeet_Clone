@@ -11,10 +11,13 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
-import com.example.googlemeet.databinding.ActivityMainBinding
+import com.example.googlemeet.databinding.ActivityMainscreenBinding
+import com.example.googlemeet.sudarshan.PagerAdaptor
+import com.example.googlemeet.sudarshan.ViewPagerFragment1
+import com.example.googlemeet.sudarshan.ViewPagerFragment2
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_mainscreen.*
 import kotlinx.android.synthetic.main.bottom_sheet_activity.*
 import kotlinx.android.synthetic.main.bottom_sheet_activity.view.*
 import kotlinx.android.synthetic.main.new_meeting_dialog.view.*
@@ -22,12 +25,12 @@ import kotlinx.android.synthetic.main.new_meeting_dialog.view.*
 class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
-    lateinit var binding: ActivityMainBinding // binding
+    lateinit var binding: ActivityMainscreenBinding // binding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater) // binding
+        binding = ActivityMainscreenBinding.inflate(layoutInflater) // binding
 
         setContentView(binding.root) // binding
 
@@ -106,7 +109,7 @@ class MainActivity : AppCompatActivity() {
         binding.indicator.setViewPager(viewPager2)
 
         binding.joinButton.setOnClickListener {
-            val intent = Intent(this, joinActivity::class.java)
+            val intent = Intent(this, JoinGoogleMeetActivity::class.java)
             startActivity(intent)
         }
     }

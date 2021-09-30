@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class DashboardActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityDa
+    lateinit var binding: ActivityDashboardBinding
 
 
     private lateinit var mAuth: FirebaseAuth
@@ -35,7 +35,7 @@ class DashboardActivity : AppCompatActivity() {
 
         binding.signOutBtn.setOnClickListener {
             mAuth.signOut()
-            val intent = Intent(this, SignInActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }

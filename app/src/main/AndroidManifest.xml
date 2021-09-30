@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.googlemeet">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,15 +13,24 @@
         <activity
             android:name=".FeedBackActivity"
             android:exported="true" />
+
+        <activity android:name=".DashboardActivity"
+            android:exported="true" />
+        <activity android:name=".SignInActivity"
+            android:exported="true" />
+
+        <activity android:name=".sudarshan.NewMeetActivity"
+            android:exported="true"/>
+
         <activity
-            android:name=".joinActivity"
+            android:name=".JoinGoogleMeetActivity"
             android:exported="true"
             android:label="@string/title_activity_join"
             android:theme="@style/Theme.GoogleMeet.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
-        <activity android:name=".splashscreen">
+        <activity android:name=".sudarshan.splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
