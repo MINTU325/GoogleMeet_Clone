@@ -1,4 +1,4 @@
-package com.example.googlemeet.sudarshan
+package com.example.googlemeet.GoogleMeetActivity
 
 import android.content.BroadcastReceiver
 import android.content.Context

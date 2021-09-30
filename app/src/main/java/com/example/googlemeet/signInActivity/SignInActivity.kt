@@ -1,9 +1,10 @@
-package  com.example.googlemeet
+package  com.example.googlemeet.signInActivity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.googlemeet.GoogleMeetActivity.MainActivity
 import com.example.googlemeet.databinding.ActivitySignInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -65,7 +66,7 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
-        var email= ""
+
         try {
             val account = completedTask.getResult(ApiException::class.java)
             val acct = GoogleSignIn.getLastSignedInAccount(this)
@@ -75,16 +76,16 @@ class SignInActivity : AppCompatActivity() {
                 val personFamilyName = acct.familyName
                 val personEmail = acct.email
                 val personId = acct.id
-                email +=personEmail
+
                 Toast.makeText(this, "Email : " + personEmail, Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }
             // Signed in successfully, show authenticated UI.
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Toast.makeText(this, "Email : " + email, Toast.LENGTH_SHORT).show()
-            val intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
+            Toast.makeText(this, "Sign in failed ", Toast.LENGTH_SHORT).show()
 
         }
     }

@@ -1,6 +1,5 @@
-package com.example.googlemeet
+package com.example.googlemeet.GoogleMeetActivity
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,13 +10,13 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
+import com.example.googlemeet.FeedBackActivity
+import com.example.googlemeet.R
 import com.example.googlemeet.databinding.ActivityMainscreenBinding
-import com.example.googlemeet.sudarshan.NewMeetActivity
-import com.example.googlemeet.sudarshan.PagerAdaptor
-import com.example.googlemeet.sudarshan.ViewPagerFragment1
-import com.example.googlemeet.sudarshan.ViewPagerFragment2
+import com.example.googlemeet.NavDrawer.PagerAdaptor
+import com.example.googlemeet.NavDrawer.ViewPagerFragment1
+import com.example.googlemeet.NavDrawer.ViewPagerFragment2
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_mainscreen.*
 import kotlinx.android.synthetic.main.bottom_sheet_activity.*
 import kotlinx.android.synthetic.main.bottom_sheet_activity.view.*
@@ -43,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         // Nav Bar code
         binding.navview1.setNavigationItemSelectedListener {
-                if(it.itemId ==R.id.Setting) run { ->
+                if(it.itemId == R.id.Setting) run { ->
                     Toast.makeText(applicationContext,
                         "SettingClicked",
                         Toast.LENGTH_SHORT).show()
@@ -81,7 +80,7 @@ class MainActivity : AppCompatActivity() {
                 bottomDialog.dismiss()
             }
             bottomSheetView.startmeeting.setOnClickListener {
-                val intent  = Intent(this,NewMeetActivity::class.java)
+                val intent  = Intent(this, NewMeetActivity::class.java)
                 startActivity(intent)
             }
 

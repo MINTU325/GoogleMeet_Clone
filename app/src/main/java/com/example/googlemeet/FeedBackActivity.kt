@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
+import com.example.googlemeet.GoogleMeetActivity.MainActivity
 import com.example.googlemeet.feedbackviewmodel.*
 import com.example.googlemeet.databinding.ActivityFeedBackBinding
 import kotlinx.android.synthetic.main.activity_feed_back.*
-import org.jetbrains.anko.toast
 
 class FeedBackActivity : AppCompatActivity() {
 
