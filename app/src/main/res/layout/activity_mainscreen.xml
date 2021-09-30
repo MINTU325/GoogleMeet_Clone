@@ -12,6 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:id="@+id/ivmenu"
+            android:src="@drawable/ic_baseline_menu_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content"/>
+
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
@@ -54,6 +63,7 @@
             android:layout_marginTop="30dp"
             android:background="#1E90FF "
             android:text="New Meeting"
+            app:layout_constraintRight_toLeftOf="@id/joinButton"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,14 +73,14 @@
             android:id="@+id/joinButton"
             android:layout_width="185dp"
             android:layout_height="35dp"
-            android:layout_marginStart="210dp"
             android:layout_marginTop="30dp"
             android:background="@color/white"
             android:text="Join with code"
             android:textAllCaps="false"
             android:textColor="#0000CD"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintRight_toRightOf="@id/NewMeetingButton"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/NewMeetingButton"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
