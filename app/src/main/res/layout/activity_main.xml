@@ -13,13 +13,13 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="wrap_content"
             android:id="@+id/ivmenu"
-            android:src="@drawable/ic_baseline_menu_24"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:layout_height="wrap_content"/>
+            android:src="@drawable/ic_baseline_menu_24"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView3"
@@ -63,9 +63,9 @@
             android:layout_marginTop="30dp"
             android:background="#1E90FF "
             android:text="New Meeting"
-            app:layout_constraintRight_toLeftOf="@id/joinButton"
             android:textAllCaps="false"
             android:textColor="@color/white"
+            app:layout_constraintRight_toLeftOf="@id/joinButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -86,10 +86,10 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager2"
-            android:visibility="visible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@+id/indicator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,14 +103,25 @@
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="20dp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible"
+            android:id="@+id/tvchecking"
+            android:text="Meetings"
+            android:layout_margin="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/NewMeetingButton" />
+
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:id="@+id/recyclerView"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/NewMeetingButton" />
+            app:layout_constraintTop_toBottomOf="@+id/tvchecking" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
