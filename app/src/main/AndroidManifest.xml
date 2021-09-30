@@ -18,14 +18,13 @@
         <activity
             android:name=".DashboardActivity"
             android:label="Dashboard" />
-        <activity android:name=".SignInActivity" />
 
 
 
 
 
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
