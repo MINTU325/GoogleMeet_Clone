@@ -1,8 +1,11 @@
 package  com.example.googlemeet
 
+import android.content.ContentUris
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.CalendarContract
 import com.bumptech.glide.Glide
 import com.example.googlemeet.databinding.ActivityDashboardBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -35,6 +38,12 @@ class DashboardActivity : AppCompatActivity() {
             val intent = Intent(this, SignInActivity::class.java)
             startActivity(intent)
             finish()
+        }
+        binding.calender.setOnClickListener {
+            val eventID: Long = 208
+            val uri: Uri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, eventID)
+            val intent = Intent(Intent.ACTION_VIEW).setData(uri)
+            startActivity(intent)
         }
     }
 }
