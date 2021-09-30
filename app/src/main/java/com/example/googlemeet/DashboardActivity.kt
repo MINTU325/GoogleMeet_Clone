@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class DashboardActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityDashboardBinding
+    lateinit var binding: ActivityDa
 
 
     private lateinit var mAuth: FirebaseAuth
