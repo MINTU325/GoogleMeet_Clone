@@ -1,21 +1,24 @@
-package com.example.googlemeet
+package com.example.googlemeet.sudarshan
 
-import android.app.Activity
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.example.googlemeet.R
 import com.example.googlemeet.databinding.ActivityJoinGoogleMeetBinding
-import org.jitsi.meet.sdk.*
+import kotlinx.android.synthetic.main.activity_join.*
+import org.jitsi.meet.sdk.BroadcastEvent
+import org.jitsi.meet.sdk.JitsiMeet
+import org.jitsi.meet.sdk.JitsiMeetActivity
+import org.jitsi.meet.sdk.JitsiMeetConferenceOptions
 import timber.log.Timber
 import java.net.MalformedURLException
 import java.net.URL
 
-class JoinGoogleMeetActivity : AppCompatActivity() {
+class NewMeetActivity : AppCompatActivity() {
     lateinit var binding: ActivityJoinGoogleMeetBinding
 
 
@@ -25,10 +28,14 @@ class JoinGoogleMeetActivity : AppCompatActivity() {
         }
     }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_join)
         binding = ActivityJoinGoogleMeetBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val serverURL: URL
         serverURL = try {
             URL("https://meet.jit.si")
@@ -44,30 +51,8 @@ class JoinGoogleMeetActivity : AppCompatActivity() {
         JitsiMeet.setDefaultConferenceOptions(defaultOptions)
 
         registerForBroadcastMessages()
-    }
+        onButtonClickNewMeeting()
 
-
-
-
-
-
-
-    fun onButtonClick(v: View?) {
-//            val editText = findViewById<EditText>(R.id.conferenceName)
-        val text = binding.conferenceName.text.toString()
-        if (text.length > 0) {
-            // Build options object for joining the conference. The SDK will merge the default
-            // one we set earlier and this one when joining.
-            val options = JitsiMeetConferenceOptions.Builder()
-                .setRoom(text)
-                // Settings for audio and video
-                //.setAudioMuted(true)
-                //.setVideoMuted(true)
-                .build()
-            // Launch the new activity with the given options. The launch() method takes care
-            // of creating the required Intent and passing the options.
-            JitsiMeetActivity.launch(this, options)
-        }
     }
 
 
@@ -88,8 +73,6 @@ class JoinGoogleMeetActivity : AppCompatActivity() {
         LocalBroadcastManager.getInstance(this)
             .registerReceiver(broadcastReceiver, intentFilter)
     }
-
-    // Example for handling different JitsiMeetSDK events
     private fun onBroadcastReceived(intent: Intent?) {
         if (intent != null) {
             val event = BroadcastEvent(intent)
@@ -108,16 +91,21 @@ class JoinGoogleMeetActivity : AppCompatActivity() {
         }
     }
 
-    // Example for sending actions to JitsiMeetSDK
-    private fun hangUp() {
-        val hangupBroadcastIntent: Intent = BroadcastIntentHelper.buildHangUpIntent()
-        LocalBroadcastManager.getInstance(org.webrtc.ContextUtils.getApplicationContext())
-            .sendBroadcast(
-                hangupBroadcastIntent
-            )
+
+    fun onButtonClickNewMeeting() {
+        val code = "code123"
+        if (code.length > 0) {
+            val options = JitsiMeetConferenceOptions.Builder()
+                .setRoom(code)
+                // Settings for audio and video
+                //.setAudioMuted(true)
+                //.setVideoMuted(true)
+                .build()
+            // Launch the new activity with the given options. The launch() method takes care
+            // of creating the required Intent and passing the options.
+            JitsiMeetActivity.launch(this, options)
+        }
     }
-
-
 
 
 }

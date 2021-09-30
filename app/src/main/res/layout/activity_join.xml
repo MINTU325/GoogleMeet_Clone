@@ -1,55 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".sudarshan.joinActivity">
+    tools:context=".sudarshan.NewMeetActivity">
 
-    <Button
-        android:id="@+id/backbtnMain"
-        android:layout_width="25dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginBottom="20dp"
-        android:background="@android:color/transparent"
-        android:drawableStart="@drawable/ic_baseline_arrow_back_24" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_toRightOf="@id/backbtnMain"
-        android:text="Join with a code"
-        android:layout_marginLeft="20dp"
-        android:textSize="20dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="join"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="20dp"
-        android:textSize="15dp"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:layout_width="wrap_content"
-    android:layout_below="@id/backbtnMain"
-        android:layout_marginTop="20dp"
-        android:id="@+id/tvName"
-        android:text="Enter the code provided by the meeting organiser"
-        android:layout_marginLeft="20dp"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:id="@+id/etMeetingCode"
-        android:background="@drawable/rectangle"
-        android:layout_below="@id/tvName"
-        android:layout_margin="20dp"
-        android:paddingLeft="10dp"
-        android:hint="Example abc-mnop-xyz"
-        android:layout_height="60dp" />
-
-</RelativeLayout>
+</LinearLayout>

@@ -11,9 +11,9 @@
         android:theme="@style/Theme.GoogleMeet">
 
 
-
+       <activity android:name=".JoinGoogleMeetActivity"/>
         <activity
-            android:name=".sudarshan.joinActivity"
+            android:name=".sudarshan.NewMeetActivity"
             android:exported="true"
             android:label="@string/title_activity_join"
             android:theme="@style/Theme.GoogleMeet.NoActionBar" />

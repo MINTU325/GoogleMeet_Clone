@@ -9,21 +9,23 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
+import com.example.googlemeet.JoinGoogleMeetActivity
 import com.example.googlemeet.R
 import com.example.googlemeet.databinding.ActivityMainscreenBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_mainscreen.*
+import kotlinx.android.synthetic.main.bottom_sheet_activity.*
 import kotlinx.android.synthetic.main.bottom_sheet_activity.view.*
 
 class MainScreenActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainscreenBinding
-
     lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainscreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         toggle = ActionBarDrawerToggle(this, drawerlayout, R.string.open, R.string.close)
         drawerlayout.addDrawerListener(toggle)
@@ -54,10 +56,16 @@ class MainScreenActivity : AppCompatActivity() {
             bottomSheetView.close.setOnClickListener {
                 bottomDialog.dismiss()
             }
+            bottomSheetView.startmeeting.setOnClickListener {
+                val intent = Intent(this, NewMeetActivity::class.java)
+                startActivity(intent)
+            }
 
             bottomDialog.setContentView(bottomSheetView)
             bottomDialog.show()
         }
+        // Start in gmeet
+
 
         val fragments : ArrayList<Fragment> = arrayListOf(
             ViewPagerFragment1(),
@@ -69,7 +77,7 @@ class MainScreenActivity : AppCompatActivity() {
         indicator.setViewPager(viewPager2)
 
         joinButton.setOnClickListener {
-            val intent = Intent(this, joinActivity::class.java)
+            val intent = Intent(this, JoinGoogleMeetActivity::class.java)
             startActivity(intent)
         }
     }
