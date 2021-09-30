@@ -35,7 +35,7 @@ class DashboardActivity : AppCompatActivity() {
 
         binding.signOutBtn.setOnClickListener {
             mAuth.signOut()
-            val intent = Intent(this, SignInActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }

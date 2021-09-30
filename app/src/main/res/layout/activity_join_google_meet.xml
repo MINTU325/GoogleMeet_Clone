@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".joinActivity">
-
+    tools:context=".JoinGoogleMeetActivity">
     <Button
         android:id="@+id/backbtnMain"
         android:layout_width="25dp"
@@ -29,13 +28,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="join"
+        android:onClick="onButtonClick"
         android:layout_alignParentEnd="true"
         android:layout_margin="20dp"
         android:textSize="15dp"
         android:layout_height="wrap_content" />
     <TextView
         android:layout_width="wrap_content"
-    android:layout_below="@id/backbtnMain"
+        android:layout_below="@id/backbtnMain"
         android:layout_marginTop="20dp"
         android:id="@+id/tvName"
         android:text="Enter the code provided by the meeting organiser"
@@ -43,16 +43,12 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/etMeetingCode"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/tvName"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:id="@+id/conferenceName"
         android:background="@drawable/rectangle"
+        android:layout_below="@id/tvName"
+        android:layout_margin="20dp"
+        android:paddingLeft="10dp"
         android:hint="Example abc-mnop-xyz"
-        android:paddingLeft="10dp" />
-
+        android:layout_height="50dp" />
 </RelativeLayout>

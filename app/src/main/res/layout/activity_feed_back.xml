@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FeedBackActivity">
+
+    <Button
+        android:id="@+id/btnclosefeedback"
+        android:layout_width="30dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_baseline_close_24" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/btnclosefeedback"
+        android:text="Send Feedback"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/forwardtoclose"
+        android:layout_width="51dp"
+        android:layout_height="35dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/ic_baseline_double_arrow_24" />
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:id="@+id/view1"
+        android:layout_below="@id/btnclosefeedback"
+        android:layout_height="1dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"        android:text="From :"
+        android:id="@+id/Text1"
+        android:textSize="15dp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/feedloginname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_toRightOf="@id/Text1"
+        android:text="Sudarshanprasad18@gmail.com" />
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:id="@+id/view2"
+        android:layout_below="@id/feedloginname"
+        android:layout_height="1dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:id="@+id/etfeedback"
+        android:layout_below="@id/view2"
+        android:layout_margin="10dp"
+        android:hint="Have feedback we would love to hear it ...!! please fell free to give us a feedback"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
+
+
