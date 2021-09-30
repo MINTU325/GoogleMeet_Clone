@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.example.googlemeet.feedbackviewmodel.*
 import com.example.googlemeet.databinding.ActivityFeedBackBinding
+import kotlinx.android.synthetic.main.activity_feed_back.*
 import org.jetbrains.anko.toast
 
 class FeedBackActivity : AppCompatActivity() {
@@ -42,9 +43,12 @@ class FeedBackActivity : AppCompatActivity() {
             var adding = FeedBack(binding.etfeedback.text.toString() + " from the mail id " + binding.feedloginname.text.toString())
             viewmodel.addTask(adding)
 
-            Toast.makeText(this, "Thank you for the feedback will look into it ", Toast.LENGTH_SHORT).show()
-
-            startActivity(intent)
+            if(etfeedback.text.toString().length >0) {
+                Toast.makeText(this, "Thank you for the feedback will look into it ", Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+            }else {
+                Toast.makeText(this, "please provide the feedback", Toast.LENGTH_SHORT).show()
+            }
         }
 
     }

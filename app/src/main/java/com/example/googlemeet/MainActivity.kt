@@ -58,6 +58,10 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        ivmenu.setOnClickListener {
+            drawerlayout.openDrawer(navview1)
+        }
+
         // bottom sheet code
         binding.NewMeetingButton.setOnClickListener {
             val bottomDialog = BottomSheetDialog(
@@ -68,6 +72,8 @@ class MainActivity : AppCompatActivity() {
                 R.layout.bottom_sheet_activity,
                 findViewById(R.id.bottomsheet) as LinearLayout?
             )
+
+
 
             bottomSheetView.close.setOnClickListener {
                 bottomDialog.dismiss()
