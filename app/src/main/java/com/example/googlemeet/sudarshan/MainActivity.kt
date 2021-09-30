@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
 import com.example.googlemeet.databinding.ActivityMainscreenBinding
+import com.example.googlemeet.sudarshan.NewMeetActivity
 import com.example.googlemeet.sudarshan.PagerAdaptor
 import com.example.googlemeet.sudarshan.ViewPagerFragment1
 import com.example.googlemeet.sudarshan.ViewPagerFragment2
@@ -26,8 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var binding: ActivityMainscreenBinding // binding
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainscreenBinding.inflate(layoutInflater) // binding
@@ -80,6 +79,10 @@ class MainActivity : AppCompatActivity() {
 
             bottomSheetView.close.setOnClickListener {
                 bottomDialog.dismiss()
+            }
+            bottomSheetView.startmeeting.setOnClickListener {
+                val intent  = Intent(this,NewMeetActivity::class.java)
+                startActivity(intent)
             }
 
             bottomSheetView.getmettinglink.setOnClickListener {
