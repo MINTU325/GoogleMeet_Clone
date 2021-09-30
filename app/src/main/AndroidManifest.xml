@@ -19,6 +19,12 @@
             android:name=".DashboardActivity"
             android:label="Dashboard" />
         <activity android:name=".SignInActivity" />
+
+
+
+
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
