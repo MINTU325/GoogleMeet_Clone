@@ -11,10 +11,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.R
 
 class SignInActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivitySignInBinding
+    lateinit var binding: ActivitySign
 
 
     companion object {
@@ -26,7 +27,7 @@ class SignInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignInBinding.inflate(layoutInflater)
+        binding = ActivitySi.inflate(layoutInflater)
 
         setContentView(binding.root)
 
