@@ -1,4 +1,4 @@
-package com.example.googlemeet.GoogleMeetActivity
+package com.example.googlemeet.utils
 
 class PasswordGenerator {
 

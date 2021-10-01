@@ -5,7 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.googlemeet.meetinglink.linkModel
+import com.example.googlemeet.model.linkModel
 import com.example.googlemeet.model.FeedBack
 
 @Dao

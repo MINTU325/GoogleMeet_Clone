@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
-import com.example.googlemeet.GoogleMeetActivity.MainActivity
+import com.example.googlemeet.Views.MainActivity
 import com.example.googlemeet.databinding.ActivityFeedBackBinding
 import com.example.googlemeet.feedbackviewmodel.FeedbackDao
 import com.example.googlemeet.feedbackviewmodel.FeedbackRepo

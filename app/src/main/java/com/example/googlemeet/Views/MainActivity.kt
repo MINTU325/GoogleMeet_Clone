@@ -1,10 +1,9 @@
-package com.example.googlemeet.GoogleMeetActivity
+package com.example.googlemeet.Views
 
 import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -24,7 +23,7 @@ import com.example.googlemeet.NavDrawer.ViewPagerFragment1
 import com.example.googlemeet.NavDrawer.ViewPagerFragment2
 import com.example.googlemeet.feedbackviewmodel.*
 import com.example.googlemeet.meetinglink.linkAdaptor
-import com.example.googlemeet.meetinglink.linkModel
+import com.example.googlemeet.model.linkModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_mainscreen.*
 import kotlinx.android.synthetic.main.bottom_sheet_activity.*
@@ -33,18 +32,11 @@ import kotlinx.android.synthetic.main.new_meeting_dialog.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import android.graphics.BitmapFactory
 
-import android.graphics.Bitmap
 import com.example.googlemeet.viewModels.FeedbackViewModelFactory
 
-import java.net.URL
 import android.content.ComponentName
-
-
-
-
-
+import com.example.googlemeet.utils.PasswordGenerator
 
 
 class MainActivity : AppCompatActivity() {
