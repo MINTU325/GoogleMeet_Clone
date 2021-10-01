@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.googlemeet.GoogleMeetActivity.MainActivity
 import com.example.googlemeet.databinding.ActivitySignInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -12,6 +13,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignInBinding
@@ -76,9 +78,11 @@ class SignInActivity : AppCompatActivity() {
                 val personFamilyName = acct.familyName
                 val personEmail = acct.email
                 val personId = acct.id
+                val personphoto = acct.photoUrl.toString()
 
-                Toast.makeText(this, "Email : " + personName, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Welcome " + personName, Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("photo",personphoto)
                 startActivity(intent)
             }
             // Signed in successfully, show authenticated UI.

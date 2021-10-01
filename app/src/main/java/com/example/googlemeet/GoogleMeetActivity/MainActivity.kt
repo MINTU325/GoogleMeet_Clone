@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.googlemeet.FeedBackActivity
 import com.example.googlemeet.R
 import com.example.googlemeet.databinding.ActivityMainscreenBinding
@@ -32,6 +33,14 @@ import kotlinx.android.synthetic.main.new_meeting_dialog.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import android.graphics.BitmapFactory
+
+import android.graphics.Bitmap
+
+import java.net.URL
+
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -72,6 +81,10 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+
+        //profile image
+        val image = intent.getStringExtra("photo")
+        Glide.with(applicationContext).load(image).into(profileimage)
 
         // Nav Bar code
         binding.navview1.setNavigationItemSelectedListener {
