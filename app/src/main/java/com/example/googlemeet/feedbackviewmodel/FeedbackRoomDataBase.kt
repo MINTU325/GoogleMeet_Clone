@@ -4,8 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.googlemeet.meetinglink.linkModel
 
-@Database(entities = [FeedBack::class], version = 1)
+@Database(entities = [FeedBack::class,linkModel::class], version = 2)
 abstract class FeedbackRoomDataBase : RoomDatabase() {
 
 

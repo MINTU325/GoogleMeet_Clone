@@ -77,7 +77,7 @@ class SignInActivity : AppCompatActivity() {
                 val personEmail = acct.email
                 val personId = acct.id
 
-                Toast.makeText(this, "Email : " + personEmail, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Email : " + personName, Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
@@ -85,7 +85,7 @@ class SignInActivity : AppCompatActivity() {
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Toast.makeText(this, "Sign in failed ", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
 
         }
     }
