@@ -1,6 +1,9 @@
 package com.example.googlemeet
 
 import android.app.AlertDialog
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.ComponentName
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,27 +18,27 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.googlemeet.FeedBackActivity
-import com.example.googlemeet.R
 import com.example.googlemeet.databinding.ActivityMainscreenBinding
 import com.example.googlemeet.NavDrawer.PagerAdaptor
 import com.example.googlemeet.NavDrawer.ViewPagerFragment1
 import com.example.googlemeet.NavDrawer.ViewPagerFragment2
 import com.example.googlemeet.feedbackviewmodel.*
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_mainscreen.*
-import kotlinx.android.synthetic.main.bottom_sheet_activity.*
-import kotlinx.android.synthetic.main.bottom_sheet_activity.view.*
-import kotlinx.android.synthetic.main.new_meeting_dialog.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-import android.content.ComponentName
 import com.example.googlemeet.GoogleMeetActivity.JoinGoogleMeetActivity
 import com.example.googlemeet.GoogleMeetActivity.NewMeetActivity
+import com.example.googlemeet.GoogleMeetActivity.passsGen
 import com.example.googlemeet.meetinglink.linkModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import kotlinx.android.synthetic.main.bottom_sheet_activity.view.*
+import kotlinx.android.synthetic.main.new_meeting_dialog.view.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
@@ -67,10 +70,6 @@ class MainActivity : AppCompatActivity() {
 
         viewmodel = ViewModelProviders.of(this).get(FeedbackViewModel::class.java)
 
-
-
-
-
         // Password Generator
         var passwordGenerator = PasswordGenerator()
 
@@ -78,7 +77,6 @@ class MainActivity : AppCompatActivity() {
         toggle = ActionBarDrawerToggle(this, drawerlayout, R.string.open, R.string.close)
         binding.drawerlayout.addDrawerListener(toggle)
         toggle.syncState()
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
@@ -91,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         ivmenu.setOnClickListener {
             drawerlayout.openDrawer(navview1)
         }
-
+buttonmSheet()
 
         // link Adaptor
         linkAdaptor = linkAdaptor(this, tasklist)
@@ -135,6 +133,92 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun buttonmSheet() {
+
+        // bottom sheet code
+        binding.NewMeetingButton.setOnClickListener {
+            val bottomDialog = BottomSheetDialog(
+                this@MainActivity, R.style.BottomSheetDialogTheme
+            )
+
+            val bottomSheetView = LayoutInflater.from(applicationContext).inflate(
+                R.layout.bottom_sheet_activity,
+                findViewById(R.id.bottomsheet) as LinearLayout?
+            )
+
+
+
+            bottomSheetView.close.setOnClickListener {
+                bottomDialog.dismiss()
+            }
+            bottomSheetView.startmeeting.setOnClickListener {
+                val intent = Intent(this, NewMeetActivity::class.java)
+                startActivity(intent)
+            }
+            bottomSheetView.schedule.setOnClickListener {
+                val cn: ComponentName
+                val i = Intent()
+                cn = ComponentName("com.google.android.calendar",
+                    "com.android.calendar.LaunchActivity")
+                i.component = cn
+                startActivity(i)
+            }
+
+            bottomSheetView.getmettinglink.setOnClickListener {
+                val mDialogview =
+                    LayoutInflater.from(this).inflate(R.layout.new_meeting_dialog, null)
+                val mBuilder = AlertDialog.Builder(this)
+                    .setView(mDialogview)
+                val mAlertDialog = mBuilder.show()
+
+                //Random password generator
+                val passwordd = passsGen()
+                val password= passwordd.generatedL(12)
+                mDialogview.tvmeetingId.text = password
+                //CopyBoard Text
+                val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+                val clip = ClipData.newPlainText("EditText",mDialogview.tvmeetingId?.getText().toString())
+                clipboard.setPrimaryClip(clip)
+                Toast.makeText(applicationContext, "Copied", Toast.LENGTH_SHORT).show()
+
+                // date and time display
+                var calendar = Calendar.getInstance()
+                var simpleDateFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
+                var data = simpleDateFormat.format(calendar.time)
+
+                //MVVM REcycler VIew
+                var idgenearate = linkModel(password)
+                viewmodel.addid(idgenearate)
+
+
+                mDialogview.closeBtn.setOnClickListener {
+                    mAlertDialog.dismiss()
+                }
+
+                mDialogview.btnlinkshare.setOnClickListener {
+                    try {
+                        val shareIntent = Intent(Intent.ACTION_SEND)
+                        shareIntent.type = "text/plain"
+                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name")
+                        var shareMessage = "\n Here is the Linkid \n\n"
+                        shareMessage =
+                            """
+                            ${shareMessage}Here is the Meeting link to join with the fellow people $password
+                            """.trimIndent()
+                        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
+                        startActivity(Intent.createChooser(shareIntent, "choose one"))
+                    } catch (e: Exception) {
+                        //e.toString();
+                    }
+                    true
+                }
+                bottomDialog.dismiss()
+            }
+            bottomDialog.setContentView(bottomSheetView)
+            bottomDialog.show()
+        }
+
+    }
 
 
     private fun navBarCode() {
