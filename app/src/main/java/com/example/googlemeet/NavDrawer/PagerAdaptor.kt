@@ -1,12 +1,12 @@
-package com.example.googlemeet.Adapters
+package com.example.googlemeet.NavDrawer
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.googlemeet.MainScreenActivity
+import com.example.googlemeet.GoogleMeetActivity.MainActivity
 
 class PagerAdaptor(
-    private val items: ArrayList<Fragment>,
-    activity: MainScreenActivity,
+    val items: ArrayList<Fragment>,
+    activity: MainActivity,
 ) : FragmentStateAdapter(activity) {
     override fun getItemCount(): Int {
         return items.size

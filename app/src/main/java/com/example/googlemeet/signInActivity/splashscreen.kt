@@ -1,4 +1,4 @@
-package com.example.googlemeet.Views
+package com.example.googlemeet.signInActivity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

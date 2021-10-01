@@ -1,11 +1,11 @@
-package com.example.googlemeet.Views
+package com.example.googlemeet
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
-import com.example.googlemeet.MainScreenActivity
+import com.example.googlemeet.GoogleMeetActivity.MainActivity
 import com.example.googlemeet.database.FeedbackRoomDataBase
 import com.example.googlemeet.databinding.ActivityFeedBackBinding
 import com.example.googlemeet.model.FeedBack
@@ -39,12 +39,12 @@ class FeedBackActivity : AppCompatActivity() {
         viewmodel = ViewModelProviders.of(this, viewModelFactory).get(FeedbackViewModel::class.java)
 
         binding.btnclosefeedback.setOnClickListener {
-            var intent = Intent(this, MainScreenActivity::class.java)
+            var intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
         binding.forwardtoclose.setOnClickListener {
-            var intent = Intent(this, MainScreenActivity::class.java)
+            var intent = Intent(this, MainActivity::class.java)
             var adding = FeedBack(binding.etfeedback.text.toString() + " from the mail id " + binding.feedloginname.text.toString())
             viewmodel.addTask(adding)
 

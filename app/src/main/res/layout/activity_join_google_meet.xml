@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.JoinGoogleMeetActivity">
+    tools:context=".GoogleMeetActivity.JoinGoogleMeetActivity">
     <Button
         android:id="@+id/backbtnMain"
         android:layout_width="25dp"

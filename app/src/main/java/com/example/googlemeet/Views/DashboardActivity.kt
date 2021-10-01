@@ -1,4 +1,4 @@
-package  com.example.googlemeet.Views
+package  com.example.googlemeet
 
 import android.content.ContentUris
 import android.content.Intent
@@ -7,13 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.CalendarContract
 import com.bumptech.glide.Glide
-import com.example.googlemeet.MainScreenActivity
+import com.example.googlemeet.GoogleMeetActivity.MainActivity
 import com.example.googlemeet.databinding.ActivityDashboardBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class DashboardActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityDashboardBinding
+    lateinit var binding: ActivityDashboardBinding
 
 
     private lateinit var mAuth: FirebaseAuth
@@ -22,9 +22,6 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-
         mAuth = FirebaseAuth.getInstance()
         val currentUser = mAuth.currentUser
 
@@ -36,7 +33,7 @@ class DashboardActivity : AppCompatActivity() {
 
         binding.signOutBtn.setOnClickListener {
             mAuth.signOut()
-            val intent = Intent(this, MainScreenActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
