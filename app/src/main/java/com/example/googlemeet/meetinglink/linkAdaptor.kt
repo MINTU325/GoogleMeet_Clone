@@ -11,6 +11,7 @@ import com.example.googlemeet.meetinglink.linkModel
 class linkAdaptor(
     val context: Context,
     val idlist: MutableList<linkModel>,
+
 ) : RecyclerView.Adapter<linkHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): linkHolder {
         var view =

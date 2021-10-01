@@ -21,15 +21,13 @@
 
         <activity android:name=".GoogleMeetActivity.NewMeetActivity"
             android:exported="true"/>
-
-        <activity
+<activity android:name=".MainActivity"
+/>        <activity
             android:name=".GoogleMeetActivity.JoinGoogleMeetActivity"
             android:exported="true"
             android:label="@string/title_activity_join"
             android:theme="@style/Theme.GoogleMeet.NoActionBar" />
-        <activity
-            android:name=".GoogleMeetActivity.MainActivity"
-            android:exported="true" />
+
         <activity android:name=".signInActivity.splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

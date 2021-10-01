@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.CalendarContract
 import com.bumptech.glide.Glide
-import com.example.googlemeet.GoogleMeetActivity.MainActivity
 import com.example.googlemeet.databinding.ActivityDashboardBinding
 import com.google.firebase.auth.FirebaseAuth
 
