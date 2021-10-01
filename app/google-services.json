@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "638672408877",
-    "project_id": "meet-5f3ed",
-    "storage_bucket": "meet-5f3ed.appspot.com"
+    "project_number": "3196772267",
+    "project_id": "meet-3b55a",
+    "storage_bucket": "meet-3b55a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:638672408877:android:6f947e52b8e7986ac003a4",
+        "mobilesdk_app_id": "1:3196772267:android:ae70f45ad5dc9f55257cee",
         "android_client_info": {
           "package_name": "com.example.googlemeet"
         }
       },
       "oauth_client": [
         {
-          "client_id": "638672408877-cfpnbm49998tjvjo9dn05pkn9olqs0u9.apps.googleusercontent.com",
+          "client_id": "3196772267-edntdsrd4hnmrjlmnrcr0ion9dv56vf1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.googlemeet",
+            "certificate_hash": "87978e7ec24ccd9551ff9e99dc284d4668920e97"
+          }
+        },
+        {
+          "client_id": "3196772267-v4dbud2o7hab5h626cviq5mvuemd27t0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCr6REUjg2_cdKQVN6kLGa7ruT8dV-XNFE"
+          "current_key": "AIzaSyAp0tNxpCfE6cNAmysu5zK5D1iByQa9hio"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "638672408877-cfpnbm49998tjvjo9dn05pkn9olqs0u9.apps.googleusercontent.com",
+              "client_id": "3196772267-v4dbud2o7hab5h626cviq5mvuemd27t0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

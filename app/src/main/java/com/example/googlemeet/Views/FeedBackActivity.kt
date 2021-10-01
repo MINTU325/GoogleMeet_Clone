@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.example.googlemeet.GoogleMeetActivity.MainActivity
-import com.example.googlemeet.database.FeedbackRoomDataBase
 import com.example.googlemeet.databinding.ActivityFeedBackBinding
+import com.example.googlemeet.feedbackviewmodel.FeedbackDao
+import com.example.googlemeet.feedbackviewmodel.FeedbackRepo
+import com.example.googlemeet.feedbackviewmodel.FeedbackRoomDataBase
+import com.example.googlemeet.feedbackviewmodel.FeedbackViewModel
 import com.example.googlemeet.model.FeedBack
-import com.example.googlemeet.model.FeedbackDao
-import com.example.googlemeet.repository.FeedbackRepo
-import com.example.googlemeet.viewModels.FeedbackViewModel
 import com.example.googlemeet.viewModels.FeedbackViewModelFactory
 import kotlinx.android.synthetic.main.activity_feed_back.*
 

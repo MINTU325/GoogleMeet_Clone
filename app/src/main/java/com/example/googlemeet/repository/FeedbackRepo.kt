@@ -1,7 +1,8 @@
-package com.example.googlemeet.repository
+package com.example.googlemeet.feedbackviewmodel
 
+import androidx.lifecycle.LiveData
+import com.example.googlemeet.meetinglink.linkModel
 import com.example.googlemeet.model.FeedBack
-import com.example.googlemeet.model.FeedbackDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,5 +14,15 @@ class FeedbackRepo(val feedbackDao: FeedbackDao) {
         CoroutineScope(Dispatchers.IO).launch {
             feedbackDao.addFeedback(feedBack)
         }
+    }
+
+   fun addmeetingid(linkModel: linkModel){
+       CoroutineScope(Dispatchers.IO).launch {
+           feedbackDao.addmeetingid(linkModel)
+       }
+   }
+
+    fun getallTask(): LiveData<List<linkModel>> {
+        return feedbackDao.getAllTask()
     }
 }

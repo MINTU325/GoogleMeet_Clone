@@ -1,8 +1,9 @@
-package com.example.googlemeet.viewModels
+package com.example.googlemeet.feedbackviewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import com.example.googlemeet.meetinglink.linkModel
 import com.example.googlemeet.model.FeedBack
-import com.example.googlemeet.repository.FeedbackRepo
 
 class FeedbackViewModel(val repo : FeedbackRepo) : ViewModel(){
 
@@ -10,4 +11,12 @@ class FeedbackViewModel(val repo : FeedbackRepo) : ViewModel(){
         repo.addFeedbackRoom(feedBack)
     }
 
+
+    fun addid(linkModel: linkModel){
+        repo.addmeetingid(linkModel)
+    }
+
+    fun getTasksFromDB(): LiveData<List<linkModel>> {
+        return repo.getallTask()
+    }
 }
