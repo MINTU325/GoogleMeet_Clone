@@ -2,6 +2,7 @@ package com.example.googlemeet.feedbackviewmodel
 
 import androidx.lifecycle.LiveData
 import com.example.googlemeet.meetinglink.linkModel
+import com.example.googlemeet.model.FeedBack
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

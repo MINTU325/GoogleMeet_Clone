@@ -36,8 +36,13 @@ import kotlinx.coroutines.launch
 import android.graphics.BitmapFactory
 
 import android.graphics.Bitmap
+import com.example.googlemeet.viewModels.FeedbackViewModelFactory
 
 import java.net.URL
+import android.content.ComponentName
+
+
+
 
 
 
@@ -128,6 +133,13 @@ class MainActivity : AppCompatActivity() {
             bottomSheetView.startmeeting.setOnClickListener {
                 val intent  = Intent(this, NewMeetActivity::class.java)
                 startActivity(intent)
+            }
+            bottomSheetView.schedule.setOnClickListener {
+                val cn: ComponentName
+                val i = Intent()
+                cn = ComponentName("com.google.android.calendar", "com.android.calendar.LaunchActivity")
+                i.component = cn
+                startActivity(i)
             }
 
             bottomSheetView.getmettinglink.setOnClickListener {
