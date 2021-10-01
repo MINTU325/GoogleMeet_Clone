@@ -2,7 +2,7 @@ package com.example.googlemeet.NavDrawer
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.googlemeet.GoogleMeetActivity.MainActivity
+import com.example.googlemeet.Views.MainActivity
 
 class PagerAdaptor(
     val items: ArrayList<Fragment>,

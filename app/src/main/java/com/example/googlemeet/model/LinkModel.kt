@@ -1,4 +1,4 @@
-package com.example.googlemeet.meetinglink
+package com.example.googlemeet.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

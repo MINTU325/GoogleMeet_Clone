@@ -1,4 +1,4 @@
-package com.example.googlemeet.GoogleMeetActivity
+package com.example.googlemeet.Views
 
 import android.app.Activity
 import android.content.BroadcastReceiver
