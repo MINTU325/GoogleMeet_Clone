@@ -86,9 +86,8 @@ class MainActivity : AppCompatActivity() {
         // Nav Bar code
         binding.navview1.setNavigationItemSelectedListener {
                 if(it.itemId == R.id.Setting) run { ->
-                    Toast.makeText(applicationContext,
-                        "SettingClicked",
-                        Toast.LENGTH_SHORT).show()
+                    intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
                 } else if (it.itemId== R.id.Feedback) run { ->
                     intent = Intent(this, FeedBackActivity::class.java)
                     startActivity(intent)
