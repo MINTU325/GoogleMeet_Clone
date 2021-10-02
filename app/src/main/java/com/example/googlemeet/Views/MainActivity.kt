@@ -1,5 +1,6 @@
 package com.example.googlemeet.Views
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -39,6 +40,17 @@ import com.example.googlemeet.viewModels.FeedbackViewModelFactory
 
 import android.content.ComponentName
 import com.example.googlemeet.utils.PasswordGenerator
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
+import kotlinx.android.synthetic.main.link_item_layout.*
+import kotlinx.android.synthetic.main.link_item_layout.view.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
@@ -46,6 +58,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var binding: ActivityMainscreenBinding // binding
 
+    // google auth
+    lateinit var mGoogleSignInClient: GoogleSignInClient
+    val RC_SIGN_IN: Int = 100
 
     private var tasklist = mutableListOf<linkModel>()
     lateinit var roomDataBase: FeedbackRoomDataBase
@@ -55,11 +70,14 @@ class MainActivity : AppCompatActivity() {
     //MVVM
     lateinit var viewmodel: FeedbackViewModel
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainscreenBinding.inflate(layoutInflater) // binding
 
         setContentView(binding.root) // binding
+
+
 
         //MVVM
         roomDataBase = FeedbackRoomDataBase.getDataBaseObject(this)
@@ -71,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         viewmodel = ViewModelProviders.of(this).get(FeedbackViewModel::class.java)
 
         // Password Generator
-        var passwordGenerator = PasswordGenerator()
+        val passwordGenerator = PasswordGenerator()
 
         // Nav Bar Code
         toggle = ActionBarDrawerToggle(this, drawerlayout, R.string.open, R.string.close)
@@ -160,8 +178,8 @@ class MainActivity : AppCompatActivity() {
                 var data = simpleDateFormat.format(calendar.time)
 
                 //MVVM REcycler VIew
-                var idgenearate = linkModel(password, data)
-                viewmodel.addid(idgenearate)
+                var generate = linkModel(password, data)
+                viewmodel.addid(generate)
 
 
                 mDialogview.closeBtn.setOnClickListener {
@@ -240,6 +258,73 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, NewMeetActivity::class.java)
             startActivity(intent)
         }
+
+        binding.profileimage.setOnClickListener {
+            googleSignIN()
+        }
+    }
+
+
+    // google sign in
+    private fun googleSignIN() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .build()
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        val account = GoogleSignIn.getLastSignedInAccount(this)
+
+//        binding.button.setSize(SignInButton.SIZE_STANDARD)
+        binding.profileimage.setOnClickListener {
+            signIn()
+
+        }
+
+
+    }
+
+    private fun signIn() {
+        val signInIntent = mGoogleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            // The Task returned from this call is always completed, no need to attach
+            // a listener.
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            handleSignInResult(task)
+        }
+    }
+
+    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
+
+        try {
+            val account = completedTask.getResult(ApiException::class.java)
+            val acct = GoogleSignIn.getLastSignedInAccount(this)
+            if (acct != null) {
+                val personName = acct.displayName
+                val personGivenName = acct.givenName
+                val personFamilyName = acct.familyName
+                val personEmail = acct.email
+                val personId = acct.id
+                val personphoto = acct.photoUrl.toString()
+
+                Toast.makeText(this, "Welcome " + personName, Toast.LENGTH_SHORT).show()
+//                val intent = Intent(this, MainActivity::class.java)
+//                intent.putExtra("photo",personphoto)
+//                startActivity(intent)
+            }
+            // Signed in successfully, show authenticated UI.
+        } catch (e: ApiException) {
+            // The ApiException status code indicates the detailed failure reason.
+            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
+
+        }
     }
 
 
@@ -252,7 +337,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // onclickListener
-    override fun onMeeting(linkModel: linkModel) {
+      fun onMeeting(linkModel: linkModel) {
         rejoin.visibility = View.VISIBLE
         val intent = Intent(this, NewMeetActivity::class.java)
         startActivity(intent)
