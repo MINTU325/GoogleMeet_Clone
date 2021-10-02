@@ -3,6 +3,7 @@
     package="com.example.googlemeet">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/googlemeet"
@@ -11,17 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GoogleMeet">
         <activity
+            android:name=".Views.SettingsActivity"
+            android:exported="true" />
+        <activity
             android:name=".FeedBackActivity"
             android:exported="true" />
-
-        <activity android:name=".DashboardActivity"
+        <activity
+            android:name=".DashboardActivity"
             android:exported="true" />
-        <activity android:name=".Views.SignInActivity"
+        <activity
+            android:name=".Views.SignInActivity"
             android:exported="true" />
-
-        <activity android:name=".Views.NewMeetActivity"
-            android:exported="true"/>
-
+        <activity
+            android:name=".Views.NewMeetActivity"
+            android:exported="true" />
         <activity
             android:name=".Views.JoinGoogleMeetActivity"
             android:exported="true"

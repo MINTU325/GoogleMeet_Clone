@@ -38,16 +38,10 @@ import kotlinx.coroutines.launch
 import com.example.googlemeet.viewModels.FeedbackViewModelFactory
 
 import android.content.ComponentName
-import com.example.googlemeet.model.onClickListener
 import com.example.googlemeet.utils.PasswordGenerator
-import kotlinx.android.synthetic.main.link_item_layout.*
-import kotlinx.android.synthetic.main.link_item_layout.view.*
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
 
 
-class MainActivity : AppCompatActivity(), onClickListener{
+class MainActivity : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var binding: ActivityMainscreenBinding // binding
@@ -60,8 +54,6 @@ class MainActivity : AppCompatActivity(), onClickListener{
 
     //MVVM
     lateinit var viewmodel: FeedbackViewModel
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,19 +87,18 @@ class MainActivity : AppCompatActivity(), onClickListener{
 
         // Nav Bar code
         binding.navview1.setNavigationItemSelectedListener {
-            if (it.itemId == R.id.Setting) run { ->
-                Toast.makeText(applicationContext,
-                    "SettingClicked",
-                    Toast.LENGTH_SHORT).show()
-            } else if (it.itemId == R.id.Feedback) run { ->
-                intent = Intent(this, FeedBackActivity::class.java)
-                startActivity(intent)
-            } else {
-                if (it.itemId == R.id.Help) run { ->
-                    Toast.makeText(applicationContext,
-                        "HelpClicked",
-                        Toast.LENGTH_SHORT).show()
-                }
+                if(it.itemId == R.id.Setting) run { ->
+                    intent = Intent(this, SettingsActivity::class.java)
+                    startActivity(intent)
+                } else if (it.itemId== R.id.Feedback) run { ->
+                    intent = Intent(this, FeedBackActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    if (it.itemId == R.id.Help) run { ->
+                        Toast.makeText(applicationContext,
+                            "HelpClicked",
+                            Toast.LENGTH_SHORT).show()
+                    }
             }
             true
         }
