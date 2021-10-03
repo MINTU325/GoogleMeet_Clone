@@ -2,23 +2,59 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
     <ImageView
         android:layout_width="wrap_content"
         android:src="@drawable/ic_baseline_insert_link_24"
         android:layout_margin="20dp"
         android:id="@+id/imagelink"
         android:layout_height="wrap_content" />
+
     <TextView
         android:layout_width="wrap_content"
         android:id="@+id/meetingitemlayoutid"
         android:text="dadasd11211da3"
         android:textColor="@color/black"
-        android:layout_toRightOf="@id/imagelink"
+        android:layout_toRightOf="@id/calendarlink"
         android:layout_marginTop="20dp"
         android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="wrap_content"
+        android:id="@+id/currenttimeanddate"
+        android:text="cuurent time and date"
+        android:layout_below="@id/meetingitemlayoutid"
+        android:layout_toRightOf="@id/textupdate"
+        android:layout_marginTop="5dp"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/textupdate"
+        android:text="The meeting was created on "
+        android:layout_below="@id/meetingitemlayoutid"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/rejoin"
+        android:layout_width="50dp"
+        android:paddingLeft="6dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginRight="20dp"
+        android:text="Rejoin"
+        android:textColor="@color/black"
+        android:background="@drawable/rectangleblue"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_baseline_calendar_today_24"
+        android:layout_margin="20dp"
+        android:id="@+id/calendarlink"
+        android:visibility="invisible"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
