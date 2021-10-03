@@ -187,7 +187,7 @@ buttonmSheet()
                 var data = simpleDateFormat.format(calendar.time)
 
                 //MVVM REcycler VIew
-                var idgenearate = linkModel(password)
+                var idgenearate = linkModel(password,data)
                 viewmodel.addid(idgenearate)
 
 
