@@ -38,8 +38,12 @@ class FeedBackActivity : AppCompatActivity() {
         val viewModelFactory = FeedbackViewModelFactory(repo)
         viewmodel = ViewModelProviders.of(this, viewModelFactory).get(FeedbackViewModel::class.java)
 
+        var email = intent.getStringExtra("emailname")
+        feedloginname.text = email
+
         binding.btnclosefeedback.setOnClickListener {
             var intent = Intent(this, MainActivity::class.java)
+
             startActivity(intent)
         }
 

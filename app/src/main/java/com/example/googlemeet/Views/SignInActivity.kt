@@ -80,13 +80,14 @@ class SignInActivity : AppCompatActivity() {
                 Toast.makeText(this, "Welcome " + personName, Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("photo",personphoto)
+                intent.putExtra("email",personEmail)
                 startActivity(intent)
             }
             // Signed in successfully, show authenticated UI.
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"", Toast.LENGTH_SHORT).show()
 
         }
     }

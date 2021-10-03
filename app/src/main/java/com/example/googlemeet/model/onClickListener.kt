@@ -4,6 +4,6 @@ interface onClickListener {
 
 
     fun onMeeting(linkModel: linkModel)
-
+    fun rejoin(linkModel: linkModel)
 
 }

@@ -100,7 +100,9 @@ class MainActivity : AppCompatActivity(), onClickListener{
                     "SettingClicked",
                     Toast.LENGTH_SHORT).show()
             } else if (it.itemId == R.id.Feedback) run { ->
+                var emailname = intent.getStringExtra("email")
                 intent = Intent(this, FeedBackActivity::class.java)
+                intent.putExtra("emailname",emailname)
                 startActivity(intent)
             } else {
                 if (it.itemId == R.id.Help) run { ->
@@ -126,8 +128,6 @@ class MainActivity : AppCompatActivity(), onClickListener{
                 R.layout.bottom_sheet_activity,
                 findViewById(R.id.bottomsheet) as LinearLayout?
             )
-
-
 
             bottomSheetView.close.setOnClickListener {
                 bottomDialog.dismiss()
@@ -241,14 +241,7 @@ class MainActivity : AppCompatActivity(), onClickListener{
             startActivity(intent)
         }
 
-        // meeting itemlayout
-        val mMeetingLayout  =
-            LayoutInflater.from(this).inflate(R.layout.link_item_layout, null)
 
-        mMeetingLayout.rejoin.setOnClickListener{
-            val intent = Intent(this, NewMeetActivity::class.java)
-            startActivity(intent)
-        }
     }
 
 
@@ -262,7 +255,14 @@ class MainActivity : AppCompatActivity(), onClickListener{
 
     // onclickListener
     override fun onMeeting(linkModel: linkModel) {
-        rejoin.visibility = View.VISIBLE
+        val intent = Intent(this, NewMeetActivity::class.java)
+        startActivity(intent)
+        CoroutineScope(Dispatchers.Main).launch {
+            linkAdaptor.notifyDataSetChanged()
+        }
+    }
+
+    override fun rejoin(linkModel: linkModel) {
         val intent = Intent(this, NewMeetActivity::class.java)
         startActivity(intent)
     }

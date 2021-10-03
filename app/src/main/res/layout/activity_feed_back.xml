@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
+        android:textColor="@color/black"
         android:layout_toRightOf="@id/btnclosefeedback"
         android:text="Send Feedback"
         android:textSize="18dp" />
@@ -47,9 +48,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/view1"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"        android:text="From :"
+        android:layout_marginBottom="20dp"
+        android:text="From :"
         android:id="@+id/Text1"
         android:textSize="15dp"
         android:textColor="@color/black" />
@@ -59,11 +61,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/view1"
+        android:textSize="15dp"
         android:layout_marginLeft="10dp"
+        android:textColor="@color/black"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:layout_toRightOf="@id/Text1"
-        android:text="Sudarshanprasad18@gmail.com" />
+        android:text="Email Name " />
 
     <View
         android:layout_width="match_parent"
@@ -78,7 +82,7 @@
         android:layout_below="@id/view2"
         android:layout_margin="10dp"
         android:hint="Have feedback we would love to hear it ...!! please fell free to give us a feedback"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 </RelativeLayout>
 
 
