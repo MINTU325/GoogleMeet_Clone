@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.googlemeet.R
+import com.example.googlemeet.Views.MainActivity
 import com.example.googlemeet.model.linkModel
 import com.example.googlemeet.model.onClickListener
 import kotlinx.android.synthetic.main.new_meeting_dialog.view.*
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.new_meeting_dialog.view.*
 class linkAdaptor(
     val context: Context,
     val idlist: MutableList<linkModel>,
-    val listener: onClickListener
+    val listener: MainActivity
 ) : RecyclerView.Adapter<linkHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): linkHolder {
         var view =
