@@ -8,13 +8,13 @@
     android:layout_height="match_parent"
     tools:context=".signInActivity.SignInActivity">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="413dp"
         android:layout_height="208dp"
-        app:srcCompat="@drawable/pic" />
+        app:srcCompat="@drawable/meetlogo" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,25 +26,26 @@
         />
 
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatCheckedTextView
         android:id="@+id/tv2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:gravity="center"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:text="@string/to_make_vedio_calls_on_meet_allow_n_access_to_your_devices_s_video_camera_and_n_microphone"
         android:textSize="14sp"
         />
-    <TextView
+    <androidx.appcompat.widget.AppCompatCheckedTextView
         android:id="@+id/t"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:gravity="center"
+        android:textAlignment="center"
         android:textColorLink="#03A9F4"
-        android:text="Terms of Service, Contract Summary \n and
- Privacy Policy"
+        android:text="Terms of Service, Contract Summary \nand Privacy Policy"
         android:textSize="14sp"
         />
     <Button

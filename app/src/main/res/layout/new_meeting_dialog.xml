@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="280dp" >
-    <TextView
+    <androidx.appcompat.widget.AppCompatCheckedTextView
         android:layout_width="wrap_content"
         android:layout_margin="20dp"
         android:textColor="@color/black"
@@ -17,24 +17,26 @@
         android:text="Here`s the link to your meeting "
         android:layout_height="wrap_content" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:background="@android:color/transparent"
-        android:layout_alignParentEnd="true"
-        android:paddingLeft="25dp"
-        android:id="@+id/closeBtn"
-        android:drawableStart="@drawable/ic_baseline_close_24"
-        android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/closeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@id/tvText"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_baseline_close_24"
+            android:paddingLeft="25dp" />
 
-    <TextView
+        <androidx.appcompat.widget.AppCompatCheckedTextView
         android:layout_width="wrap_content"
         android:id="@+id/tvText1"
         android:layout_below="@id/tvText"
-        android:layout_marginLeft="20dp"
-        android:text="Copy this link and send to people that you want to  \n meet with. Make sure that you save it so that you can \n use it later, too"
+            android:layout_marginHorizontal="30dp"
+        android:text="Copy this link and send to people that you want to  meet with. Make sure that you save it so that you can use it later, too."
         android:layout_height="wrap_content" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatCheckedTextView
         android:layout_width="match_parent"
         android:id="@+id/tvmeetingId"
         android:background="@drawable/rectangle"
@@ -57,6 +59,7 @@
             android:drawableStart="@drawable/ic_baseline_share_24"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:layout_marginBottom="12dp"
             android:text="    share invitation "
             android:textColor="@color/white" />
     </RelativeLayout>
