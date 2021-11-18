@@ -12,7 +12,7 @@
         android:id="@+id/imageView"
         android:layout_width="413dp"
         android:layout_height="208dp"
-        app:srcCompat="@drawable/meetlogo" />
+        app:srcCompat="@drawable/logo" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/textView"

@@ -33,15 +33,17 @@ import com.example.googlemeet.GoogleMeetActivity.JoinGoogleMeetActivity
 import com.example.googlemeet.GoogleMeetActivity.NewMeetActivity
 import com.example.googlemeet.GoogleMeetActivity.passsGen
 import com.example.googlemeet.meetinglink.linkModel
+import com.example.googlemeet.meetinglink.onCLickListener
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.bottom_sheet_activity.view.*
+import kotlinx.android.synthetic.main.link_item_layout.*
 import kotlinx.android.synthetic.main.new_meeting_dialog.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+// cloned
 
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),onCLickListener {
 
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var binding: ActivityMainscreenBinding // binding
@@ -84,15 +86,15 @@ class MainActivity : AppCompatActivity() {
         val image = intent.getStringExtra("photo")
         Glide.with(applicationContext).load(image).into(profileimage)
 
-     navBarCode()
+        navBarCode()
 
         ivmenu.setOnClickListener {
             drawerlayout.openDrawer(navview1)
         }
-buttonmSheet()
+        buttonmSheet()
 
         // link Adaptor
-        linkAdaptor = linkAdaptor(this, tasklist)
+        linkAdaptor = linkAdaptor(this, tasklist,this)
         recyclerView.adapter = linkAdaptor
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -101,11 +103,11 @@ buttonmSheet()
             if (it.size != 0) {
                 recyclerView.visibility = View.VISIBLE
                 tvchecking.visibility = View.VISIBLE
-                viewPager2.visibility = View.GONE
+//                viewPager2.visibility = View.GONE
             } else {
                 recyclerView.visibility = View.INVISIBLE
                 tvchecking.visibility = View.INVISIBLE
-                viewPager2.visibility = View.VISIBLE
+//                viewPager2.visibility = View.VISIBLE
 
             }
             tasklist.clear()
@@ -123,9 +125,9 @@ buttonmSheet()
             ViewPagerFragment2()
         )
         val adapter = PagerAdaptor(fragments, this)
-        binding.viewPager2.adapter = adapter
+//        binding.viewPager2.adapter = adapter
 
-        binding.indicator.setViewPager(viewPager2)
+//        binding.indicator.setViewPager(viewPager2)
 
         binding.joinButton.setOnClickListener {
             val intent = Intent(this, JoinGoogleMeetActivity::class.java)
@@ -158,8 +160,10 @@ buttonmSheet()
             bottomSheetView.schedule.setOnClickListener {
                 val cn: ComponentName
                 val i = Intent()
-                cn = ComponentName("com.google.android.calendar",
-                    "com.android.calendar.LaunchActivity")
+                cn = ComponentName(
+                    "com.google.android.calendar",
+                    "com.android.calendar.LaunchActivity"
+                )
                 i.component = cn
                 startActivity(i)
             }
@@ -173,11 +177,12 @@ buttonmSheet()
 
                 //Random password generator
                 val passwordd = passsGen()
-                val password= passwordd.generatedL(12)
+                val password = passwordd.generatedL(12)
                 mDialogview.tvmeetingId.text = password
                 //CopyBoard Text
                 val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-                val clip = ClipData.newPlainText("EditText",mDialogview.tvmeetingId?.getText().toString())
+                val clip =
+                    ClipData.newPlainText("EditText", mDialogview.tvmeetingId?.getText().toString())
                 clipboard.setPrimaryClip(clip)
                 Toast.makeText(applicationContext, "Copied", Toast.LENGTH_SHORT).show()
 
@@ -187,7 +192,7 @@ buttonmSheet()
                 var data = simpleDateFormat.format(calendar.time)
 
                 //MVVM REcycler VIew
-                var idgenearate = linkModel(password,data)
+                var idgenearate = linkModel(password, data)
                 viewmodel.addid(idgenearate)
 
 
@@ -253,6 +258,14 @@ buttonmSheet()
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+
+
+    override fun rejoin(linkModel: linkModel, position: Int) {
+        rejoin.visibility = View.VISIBLE
+        val intent = Intent(this, NewMeetActivity::class.java)
+        startActivity(intent)
     }
 
 }

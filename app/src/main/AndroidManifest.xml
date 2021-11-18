@@ -25,6 +25,7 @@
 />        <activity
             android:name=".GoogleMeetActivity.JoinGoogleMeetActivity"
             android:exported="true"
+        android:noHistory="true"
             android:label="@string/title_activity_join"
             android:theme="@style/Theme.GoogleMeet.NoActionBar" />
 

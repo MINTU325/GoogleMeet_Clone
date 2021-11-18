@@ -85,7 +85,7 @@ class SignInActivity : AppCompatActivity() {
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Toast.makeText(this, "Sign in failed ", Toast.LENGTH_SHORT).show()
+           // Toast.makeText(this, "Sign in failed ", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 

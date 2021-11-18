@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivmenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,11 +45,12 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/profileimage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/profile"
+                android:scaleType="fitXY"
+                android:background="@drawable/user"
                 tools:layout_editor_absoluteX="337dp"
                 tools:layout_editor_absoluteY="11dp" />
 
@@ -84,24 +85,24 @@
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/indicator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView3" />
+<!--        <androidx.viewpager2.widget.ViewPager2-->
+<!--            android:id="@+id/viewPager2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:visibility="visible"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/indicator"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/textView3" />-->
 
-        <me.relex.circleindicator.CircleIndicator3
-            android:id="@+id/indicator"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:layout_editor_absoluteX="20dp" />
+<!--        <me.relex.circleindicator.CircleIndicator3-->
+<!--            android:id="@+id/indicator"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:background="@android:color/darker_gray"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            tools:layout_editor_absoluteX="20dp" />-->
 
         <TextView
             android:layout_width="wrap_content"
@@ -125,7 +126,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navview1"
         android:layout_width="wrap_content"
@@ -134,4 +134,5 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/header_layout"
         app:menu="@menu/menu" />
+
 </androidx.drawerlayout.widget.DrawerLayout>

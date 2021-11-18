@@ -63,7 +63,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:layout_toRightOf="@id/Text1"
-        android:text="Sudarshanprasad18@gmail.com" />
+        android:text="sainimintu34@gmail.com" />
 
     <View
         android:layout_width="match_parent"
