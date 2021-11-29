@@ -1,3 +1,3 @@
 Google Meet 
 
-Meeting with your favorite people in the video call 
+<h1 align="center"> Meeting New People with your Friends </h1>
